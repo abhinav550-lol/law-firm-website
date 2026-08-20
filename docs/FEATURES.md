@@ -5,4 +5,4 @@
 - Services / Expertise Page -> All the services provided
 - About Us / Team Page -> Brief introduction about the laywers within the firm with a photo
 - Legal Resources / Blog section 
-- Home Page
+- Home Page	

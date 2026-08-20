@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div>
-		
+    <div className="font-cormorant text-2xl">
+		Hello World
     </div>
   );
 }
