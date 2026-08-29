@@ -32,9 +32,8 @@ const Navbar = () => {
         aria-label="Main navigation"
         className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-6 py-5 lg:px-10"
       >
-        <Link href="/" aria-label="Advocacy home" onClick={closeMenu}>
-          <Logo />
-        </Link>
+        
+          <Logo fn={closeMenu} />
 
         <button
           type="button"
@@ -68,7 +67,7 @@ const Navbar = () => {
                 href={item.href}
                 onClick={closeMenu}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative rounded-sm py-2 text-md font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-button after:content-[''] after:transition-transform after:duration-300 after:ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-800 ${
+                className={`font-inter relative rounded-sm py-2 text-md font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-button after:content-[''] after:transition-transform after:duration-300 after:ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-800 ${
                   isActive
                     ? 'text-button after:scale-x-100'
                     : 'text-gray-700 after:scale-x-0 hover:text-button hover:after:scale-x-100'
