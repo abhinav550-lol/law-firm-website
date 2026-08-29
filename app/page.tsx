@@ -1,14 +1,5 @@
-import Navbar from "@/components/layout/Navbar"
-import Footer from "@/components/layout/Footer"
-
 const Home = () => {
-  return (
-	<>
-	<Navbar />
-
-	<Footer/>
-	</>
-  )
+  return null
 }
 
 export default Home

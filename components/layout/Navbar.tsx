@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import Button from '@/components/ui/Button'
@@ -16,6 +16,7 @@ const navigation = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
   const router = useRouter()
 
   const closeMenu = () => setIsMenuOpen(false)
@@ -57,16 +58,26 @@ const Navbar = () => {
             isMenuOpen ? 'flex' : 'hidden'
           } basis-full flex-col items-stretch gap-2 pt-5 md:flex md:basis-auto md:flex-row md:items-center md:gap-8 md:pt-0`}
         >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={closeMenu}
-              className="rounded-sm py-2 text-sm font-medium text-gray-700 transition hover:text-gray-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-800"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive =
+              pathname === item.href || pathname.startsWith(`${item.href}/`)
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative rounded-sm py-2 text-md font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-button after:content-[''] after:transition-transform after:duration-300 after:ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-800 ${
+                  isActive
+                    ? 'text-button after:scale-x-100'
+                    : 'text-gray-700 after:scale-x-0 hover:text-button hover:after:scale-x-100'
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
 
           <Button className="mt-2 md:mt-0" onClick={goToContact}>
             Contact Us
