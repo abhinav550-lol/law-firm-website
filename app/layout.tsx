@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import Footer from "@/app/parts/layout/Footer";
+import Navbar from "@/app/parts/layout/Navbar";
 import { inter } from "@/public/fonts/inter/inter";
 import { cormorant } from "@/public/fonts/cormorant/cormorant";
 

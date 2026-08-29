@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import Button from '@/components/ui/Button'
+import Button from '@/app/parts/layout/Button'
 
 const DashboardWhoWeAre = () => {
   const router = useRouter()

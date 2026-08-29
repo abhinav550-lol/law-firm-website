@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import Button from '@/components/ui/Button'
+import Button from '@/app/parts/layout/Button'
 
 const DashboardHero = () => {
   const router = useRouter()

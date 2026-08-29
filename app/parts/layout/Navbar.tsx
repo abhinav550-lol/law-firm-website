@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-import Button from '@/components/ui/Button'
-import Logo from '@/components/ui/Logo'
+import Button from '@/app/parts/layout/Button'
+import Logo from '@/app/parts/layout/Logo'
 
 const navigation = [
   { label: 'About', href: '/about' },

@@ -1,5 +1,5 @@
-import DashboardHero from '@/components/ui/DashboardHero'
-import DashboardWhoWeAre from '@/components/ui/DashboardWhoWeAre'
+import DashboardHero from '@/app/parts/ui/DashboardHero'
+import DashboardWhoWeAre from '@/app/parts/ui/DashboardWhoWeAre'
 
 const DashboardPage = () => {
   return (
