@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #EAF3E9;
   --foreground: #171717;
 }
 
 @theme {
+  --color-background: #F4F8F2;
+  --color-button: #315F3B;
+  --color-button-hover: #4D7A57;
   --font-inter: var(--font-inter);
   --font-cormorant: var(--font-cormorant);
 }
-
