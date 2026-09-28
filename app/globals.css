@@ -103,7 +103,49 @@
   animation-delay: 300ms;
 }
 
+/* Base UI keeps the dialog mounted until these exit transitions finish. */
+.team-profile-backdrop {
+  opacity: 1;
+  transition: opacity 240ms ease-out;
+}
+
+.team-profile-dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 240ms ease-out,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-profile-backdrop[data-starting-style],
+.team-profile-backdrop[data-ending-style],
+.team-profile-dialog[data-starting-style],
+.team-profile-dialog[data-ending-style] {
+  opacity: 0;
+}
+
+.team-profile-dialog[data-starting-style],
+.team-profile-dialog[data-ending-style] {
+  transform: translateY(0.5rem) scale(0.98);
+}
+
+.team-profile-backdrop[data-ending-style],
+.team-profile-dialog[data-ending-style] {
+  transition-duration: 180ms;
+  transition-timing-function: ease-in;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .team-profile-backdrop,
+  .team-profile-dialog {
+    transition: none;
+  }
+
+  .team-profile-dialog[data-starting-style],
+  .team-profile-dialog[data-ending-style] {
+    transform: none;
+  }
+
   .animate-fade-up,
   .animate-fade-scale,
   .animate-fade-rotate {
