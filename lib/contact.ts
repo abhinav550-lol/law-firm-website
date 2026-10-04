@@ -23,7 +23,7 @@ export const officeLocations = [
 export const contactDetails = {
   phone: "+91 98765 43210",
   phoneHref: "tel:+919876543210",
-  email: "contact@loremadvocates.com",
+  email: "maabhinav550@gmail.com",
   website: "www.loremadvocates.com",
   websiteHref: "https://www.loremadvocates.com",
 } as const;

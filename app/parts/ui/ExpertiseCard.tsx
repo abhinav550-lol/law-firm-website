@@ -22,16 +22,16 @@ export default function ExpertiseCard({
         {index !== undefined && (
           <span
             aria-hidden="true"
-            className="font-cormorant text-3xl font-medium text-[#526359]"
+            className="font-cormorant text-3xl font-medium text-gray-600"
           >
             {String(index + 1).padStart(2, "0")}
           </span>
         )}
       </div>
-      <h3 className="mt-6 font-cormorant text-[28px] font-semibold leading-[1.15] text-[#173B2A]">
+      <h3 className="type-title mt-6">
         {area.name}
       </h3>
-      <p className="mt-4 flex-1 text-base leading-7 text-[#526359]">
+      <p className="type-body mt-4 flex-1">
         {area.summary}
       </p>
       <span className="mt-6 flex min-h-11 items-center justify-between gap-3 border-t border-[#DCE6DC] pt-5 text-sm font-semibold text-[#315F3B]">

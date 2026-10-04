@@ -11,20 +11,20 @@ export default function PrivacyPolicyPage() {
     <main className="min-h-screen bg-white">
       <section className="px-6 py-20 md:px-12 lg:px-24">
         <div className="mx-auto max-w-3xl">
-          <h1 className="font-serif text-[38px] font-semibold leading-[1.15] text-deep-green md:text-[56px] md:leading-[1.05]">
+          <h1 className="type-display">
             Privacy Policy
           </h1>
 
-          <div className="mt-10 space-y-8 text-base leading-relaxed text-text">
+          <div className="type-body mt-10 space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Information We Collect
               </h2>
               <p>
                 Through the contact form on this website, we collect the
                 following information:
               </p>
-              <ul className="list-inside list-disc space-y-1 text-text">
+              <ul className="list-inside list-disc space-y-1 text-gray-600">
                 <li>Full Name</li>
                 <li>Phone Number</li>
                 <li>Email Address (if provided)</li>
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Why We Collect This Information
               </h2>
               <p>
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 How Your Information Is Used
               </h2>
               <p>
@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Email Processing
               </h2>
               <p>
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Third-Party Services
               </h2>
               <p>
@@ -83,7 +83,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Data Retention
               </h2>
               <p>
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Security
               </h2>
               <p>
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="font-serif text-[24px] font-semibold leading-[1.25] text-deep-green">
+              <h2 className="type-title">
                 Contact for Privacy-Related Questions
               </h2>
               <p>
@@ -117,7 +117,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            <p className="text-sm text-muted-text">
+            <p className="text-sm text-gray-500">
               This privacy policy is subject to the applicable laws of India.
             </p>
           </div>

@@ -33,7 +33,7 @@ export default function ContactOffices() {
         <section aria-labelledby="offices-heading">
           <h2
             id="offices-heading"
-            className="font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
+            className="type-section"
           >
             Our Offices
           </h2>
@@ -62,11 +62,11 @@ export default function ContactOffices() {
                   </div>
                   <h3
                     id={`${office.id}-heading`}
-                    className="mt-3 font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]"
+                    className="type-title mt-3"
                   >
                     {office.city}
                   </h3>
-                  <address className="mt-3 text-base leading-7 not-italic text-[#26312B]/80">
+                  <address className="type-body mt-3 not-italic">
                     {office.addressLine}
                     <br />
                     {office.regionLine}
@@ -85,7 +85,7 @@ export default function ContactOffices() {
         >
           <h2
             id="contact-details-heading"
-            className="font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]"
+            className="type-title"
           >
             General Enquiries
           </h2>
@@ -95,11 +95,11 @@ export default function ContactOffices() {
                 key={label}
                 className="grid items-baseline gap-x-6 gap-y-1 py-3 sm:grid-cols-[5rem_minmax(0,1fr)]"
               >
-                <dt className="text-sm leading-6 text-[#26312B]/75">{label}</dt>
+                <dt className="type-meta">{label}</dt>
                 <dd className="min-w-0">
                   <a
                     href={href}
-                    className="inline-flex min-h-11 max-w-full items-center rounded-sm text-base font-medium leading-7 text-[#315F3B] [overflow-wrap:anywhere] hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315F3B]"
+                    className="type-body inline-flex min-h-11 max-w-full items-center rounded-sm font-medium text-[#315F3B] [overflow-wrap:anywhere] hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315F3B]"
                   >
                     {value}
                   </a>
@@ -115,19 +115,19 @@ export default function ContactOffices() {
         className="min-w-0 overflow-hidden rounded-lg border border-[#DCE6DC] bg-white"
       >
         <div className="px-6 pt-6 sm:px-8 sm:pt-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#315F3B]">
+          <p className="type-eyebrow">
             Office locations
           </p>
           <h2
             id="location-heading"
-            className="mt-3 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
+            className="type-section mt-3"
           >
             Find an Office
           </h2>
           <div
             role="group"
             aria-label="Choose an office to view on the map"
-            className="mt-5 flex flex-wrap gap-x-6 gap-y-1 border-b border-[#DCE6DC]"
+            className="mt-5 flex min-w-0 flex-nowrap gap-x-6 overflow-x-auto overscroll-x-contain border-b border-[#DCE6DC] [scrollbar-color:#DCE6DC_transparent] [scrollbar-width:thin]"
           >
             {officeLocations.map((office) => {
               const selected = office.id === selectedOffice.id;
@@ -139,10 +139,10 @@ export default function ContactOffices() {
                   aria-pressed={selected}
                   aria-controls="office-location"
                   onClick={() => setSelectedOfficeId(office.id)}
-                  className={`min-h-11 cursor-pointer border-b-2 px-1 py-3 text-sm leading-6 transition-colors duration-150 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315F3B] ${
+                  className={`min-h-11 shrink-0 cursor-pointer whitespace-nowrap border-b-2 px-1 py-3 text-sm leading-6 transition-colors duration-150 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#315F3B] ${
                     selected
-                      ? "border-[#315F3B] font-semibold text-[#173B2A]"
-                      : "border-transparent font-medium text-[#26312B]/75 hover:border-[#DCE6DC] hover:text-[#315F3B]"
+                      ? "border-[#315F3B] font-semibold text-gray-900"
+                      : "border-transparent font-medium text-gray-600 hover:border-[#DCE6DC] hover:text-[#315F3B]"
                   }`}
                 >
                   {office.label} · {office.city}
@@ -161,18 +161,18 @@ export default function ContactOffices() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
-              className="h-full w-full border-0 grayscale"
+              className="h-full w-full border-0"
             />
           </div>
           <div className="border-t border-[#DCE6DC] px-6 py-6 sm:px-8">
             <p
               aria-live="polite"
               aria-atomic="true"
-              className="text-xs font-semibold uppercase tracking-[0.14em] text-[#315F3B]"
+              className="type-eyebrow"
             >
               {selectedOffice.label} · {selectedOffice.city}
             </p>
-            <p className="mt-2 text-base leading-7 text-[#26312B]/80">
+            <p className="type-body mt-2">
               {selectedOffice.addressLine}
               <br />
               {selectedOffice.regionLine}
@@ -187,7 +187,7 @@ export default function ContactOffices() {
               <span className="sr-only">(opens in a new tab)</span>
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </a>
-            <p className="mt-2 text-xs leading-5 text-[#26312B]/75">
+            <p className="mt-2 text-xs leading-5 text-gray-600">
               The map shows the surrounding area for this sample office address.
             </p>
           </div>

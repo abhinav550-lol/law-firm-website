@@ -399,8 +399,10 @@ MONGODB_URI=
 
 SMTP_HOST=
 SMTP_PORT=
+SMTP_SECURE=
 SMTP_USER=
 SMTP_PASSWORD=
+SMTP_FROM=
 
 LAWYER_EMAILS=
 
@@ -408,6 +410,11 @@ NEXT_PUBLIC_SITE_URL=
 ```
 
 Never commit `.env.local` or other files containing credentials.
+
+For the contact form, copy `.env.example` to `.env.local` and fill in
+`SMTP_PASSWORD`. Sender and lawyer recipient both use
+`maabhinav550@gmail.com` during development. See
+[contact email setup](docs/CONTACT_EMAIL.md) for delivery and recipient settings.
 
 ## Development
 

@@ -57,29 +57,29 @@ const lawyers: Lawyer[] = [
 
 export default function TeamPage() {
   return (
-    <main className="bg-[#F4F8F2] font-inter text-[#26312B]">
+    <main className="bg-white font-inter text-gray-600">
       <section
         aria-labelledby="team-heading"
         className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16 lg:pb-20"
       >
         <header className="mb-10 grid gap-6 border-b border-[#DCE6DC] pb-8 sm:mb-12 sm:pb-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
+            <p className="type-eyebrow">
               The people behind the practice
             </p>
             <h1
               id="team-heading"
-              className="mt-4 font-cormorant text-[42px] font-semibold leading-[1.05] text-[#173B2A] sm:text-[56px]"
+              className="type-display mt-4"
             >
               Our Team
             </h1>
           </div>
           <div className="max-w-2xl lg:pt-1">
-            <p className="text-base leading-7 text-[#526359] sm:text-lg sm:leading-8">
+            <p className="type-intro">
               Meet the legal professionals behind our firm, bringing experience,
               dedication, and trusted counsel to every case.
             </p>
-            <p className="mt-4 text-sm leading-6 text-[#526359]">
+            <p className="type-meta mt-4">
               Explore their areas of practice and professional backgrounds below.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function TeamPage() {
 
         <ul
           aria-label="Lawyers at the firm"
-          className="grid  grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:gap-6 "
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:gap-6"
         >
           {lawyers.map((lawyer, index) => (
             <li
@@ -102,10 +102,10 @@ export default function TeamPage() {
 
         <div className="mt-10 flex flex-col gap-5 rounded-xl border border-[#DCE6DC] bg-[#EAF3E9] p-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
+            <p className="type-eyebrow">
               A shared approach
             </p>
-            <h2 className="mt-3 font-cormorant text-[28px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[32px]">
+            <h2 className="type-title mt-3">
               Care. Diligence. Professional integrity.
             </h2>
           </div>

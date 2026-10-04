@@ -126,18 +126,18 @@ const DashboardFAQ = () => {
     >
       <div className="mx-auto max-w-5xl">
         <div className="animate-fade-up animate-700ms max-w-2xl">
-          <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-button">
+          <p className="type-eyebrow text-button">
             FAQ
           </p>
           <h2
             id="dashboard-faq-heading"
-            className="mt-5 font-cormorant text-5xl font-semibold leading-[0.95] tracking-tight text-gray-900 sm:text-6xl"
+            className="type-section mt-5"
           >
             Frequently asked questions.
           </h2>
         </div>
 
-        <Accordion className="animate-fade-up animate-700ms animate-delay-150ms mt-12 rounded-2xl border border-[#315F3B]/15 bg-white/55 px-5 sm:px-8">
+        <Accordion className="animate-fade-up animate-700ms animate-delay-150ms mt-12 rounded-2xl border border-[#315F3B]/15 bg-white px-5 sm:px-8">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={faq.question}
@@ -147,7 +147,7 @@ const DashboardFAQ = () => {
               <AccordionTrigger className="font-inter py-5 pr-3 text-base font-semibold leading-6 text-gray-900 hover:no-underline aria-expanded:text-[#315F3B] [&_[data-slot=accordion-trigger-icon]]:text-[#315F3B]">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="font-inter pb-5 text-base leading-7 text-gray-600 [&_a]:!text-[#315F3B] [&_a]:!underline [&_a]:decoration-[#315F3B] [&_a]:underline-offset-4 [&_a]:hover:!text-[#264b2e]">
+              <AccordionContent className="type-body pb-5 [&_a]:!text-[#315F3B] [&_a]:!underline [&_a]:decoration-[#315F3B] [&_a]:underline-offset-4 [&_a]:hover:!text-[#264b2e]">
                 <p>{faq.answer}</p>
               </AccordionContent>
             </AccordionItem>
