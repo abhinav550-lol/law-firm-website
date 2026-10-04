@@ -18,22 +18,22 @@ const services = [
 
 export default function ExpertisePage() {
   return (
-    <main className="bg-white font-inter text-gray-600">
+    <main className="bg-white font-inter text-[#26312B]">
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16 lg:pb-20">
         <header className="overflow-hidden rounded-xl bg-[#173B2A]">
           <div className="grid gap-6 px-6 py-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:p-12">
             <div>
-              <p className="type-eyebrow text-[#C8DEC8]">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C8DEC8]">
                 Our areas of practice
               </p>
               <h1
                 id="expertise-heading"
-                className="type-display mt-4 text-white"
+                className="mt-4 font-cormorant text-[42px] font-semibold leading-[1.05] text-white sm:text-[56px]"
               >
                 Expertise
               </h1>
             </div>
-            <p className="type-intro max-w-2xl text-[#EAF3E9] lg:pt-1">
+            <p className="max-w-2xl text-base leading-7 text-[#EAF3E9] sm:text-lg sm:leading-8 lg:pt-1">
               LoremAdvocates provides legal representation, advisory, and dispute
               resolution services across a broad range of matters. Explore our
               practice areas to learn about the scope of our work.
@@ -62,17 +62,17 @@ export default function ExpertisePage() {
         <section aria-labelledby="practice-areas-heading" className="mt-12 sm:mt-16">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="type-eyebrow">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
                 The scope of our work
               </p>
               <h2
                 id="practice-areas-heading"
-                className="type-section mt-3"
+                className="mt-3 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
               >
                 Areas of Practice
               </h2>
             </div>
-            <p className="type-meta">
+            <p className="text-sm leading-6 text-[#526359]">
               {expertiseAreas.length} practice areas. A considered approach to each matter.
             </p>
           </div>
@@ -94,12 +94,12 @@ export default function ExpertisePage() {
           className="mt-12 grid gap-8 rounded-xl border border-[#DCE6DC] bg-[#EAF3E9] p-6 sm:mt-16 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
         >
           <div>
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
               Our professional approach
             </p>
             <h2
               id="practice-approach-heading"
-              className="type-section mt-4"
+              className="mt-4 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
             >
               Research. Strategy.
               <br />
@@ -107,7 +107,7 @@ export default function ExpertisePage() {
             </h2>
           </div>
           <div>
-            <p className="type-body max-w-2xl">
+            <p className="max-w-2xl text-base leading-7 text-[#526359]">
               Our approach combines sound legal understanding, strategic thinking,
               and practical execution, with care and attention to the individual
               requirements of every matter.

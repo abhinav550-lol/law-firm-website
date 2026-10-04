@@ -36,7 +36,7 @@ export default async function ExpertiseAreaPage({ params }: PageProps) {
   if (!area) notFound();
 
   return (
-    <main className="bg-white font-inter text-gray-600">
+    <main className="bg-white font-inter text-[#26312B]">
       <div className="mx-auto max-w-7xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:px-10 lg:pb-20">
         <nav aria-label="Expertise navigation">
           <Link
@@ -53,13 +53,13 @@ export default async function ExpertiseAreaPage({ params }: PageProps) {
             <ExpertiseIcon slug={area.slug} className="size-8 stroke-[1.5] lg:size-10" />
           </span>
           <div>
-            <p className="type-eyebrow text-[#C8DEC8]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C8DEC8]">
               Area of practice
             </p>
-            <h1 className="type-display mt-4 max-w-4xl text-white">
+            <h1 className="mt-4 max-w-4xl font-cormorant text-[36px] font-semibold leading-[1.1] text-white sm:text-[48px] lg:text-[56px]">
               {area.name}
             </h1>
-            <p className="type-intro mt-5 max-w-3xl text-[#EAF3E9]">
+            <p className="mt-5 max-w-3xl text-base leading-7 text-[#EAF3E9] sm:text-lg sm:leading-8">
               {area.summary}
             </p>
           </div>
@@ -70,16 +70,16 @@ export default async function ExpertiseAreaPage({ params }: PageProps) {
             aria-labelledby="overview-heading"
             className="rounded-xl border border-[#DCE6DC] bg-white p-6 sm:p-10"
           >
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
               Scope of practice
             </p>
             <h2
               id="overview-heading"
-              className="type-section mt-3"
+              className="mt-3 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
             >
               Overview
             </h2>
-            <div className="type-body mt-6 max-w-prose space-y-5">
+            <div className="mt-6 max-w-prose space-y-5 text-base leading-7 text-[#526359]">
               {area.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -90,7 +90,7 @@ export default async function ExpertiseAreaPage({ params }: PageProps) {
             <nav aria-labelledby="practice-navigation-heading">
               <h2
                 id="practice-navigation-heading"
-                className="type-title px-3 pt-1"
+                className="px-3 pt-1 font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]"
               >
                 Explore our expertise
               </h2>
@@ -106,7 +106,7 @@ export default async function ExpertiseAreaPage({ params }: PageProps) {
                         className={`flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 py-3 text-sm leading-6 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315F3B] ${
                           isCurrent
                             ? "bg-[#173B2A] font-semibold text-white"
-                            : "text-gray-600 hover:bg-[#EAF3E9] hover:text-[#315F3B]"
+                            : "text-[#526359] hover:bg-[#EAF3E9] hover:text-[#315F3B]"
                         }`}
                       >
                         <span>{practice.name}</span>

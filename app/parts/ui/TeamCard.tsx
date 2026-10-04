@@ -21,7 +21,7 @@ function LawyerPortrait({
 
   if (!src || failed) {
     return (
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#EAF3E9] text-gray-600">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#EAF3E9] text-[#526359]">
         <UserRound aria-hidden="true" className="size-14 stroke-1" />
         <span className="text-sm">Portrait unavailable</span>
       </div>
@@ -65,15 +65,15 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
         <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-5">
           {profile.position && (
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#315F3B]">
               {profile.position}
             </p>
           )}
-          <h2 className="type-title mt-2">
+          <h2 className="mt-2 font-cormorant text-[28px] font-semibold leading-[1.15] text-[#173B2A]">
             {profile.name}
           </h2>
           {profile.specialization && (
-            <p className="type-meta mt-3">
+            <p className="mt-3 text-sm leading-6 text-[#526359]">
               {profile.specialization}
             </p>
           )}
@@ -92,10 +92,10 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
       <Dialog.Portal>
         <Dialog.Backdrop className="team-profile-backdrop fixed inset-0 z-50 bg-[#173B2A]/50" />
-        <Dialog.Popup className="team-profile-dialog fixed top-1/2 left-1/2 z-50 max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-4xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain rounded-xl border border-[#DCE6DC] bg-white font-inter text-gray-600 outline-none">
+        <Dialog.Popup className="team-profile-dialog fixed top-1/2 left-1/2 z-50 max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-4xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain rounded-xl border border-[#DCE6DC] bg-white font-inter text-[#26312B] outline-none">
           <Dialog.Close
             aria-label="Close profile"
-            className="absolute top-3 right-3 z-10 flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#DCE6DC] bg-white text-gray-900 hover:bg-[#EAF3E9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315F3B]"
+            className="absolute top-3 right-3 z-10 flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#DCE6DC] bg-white text-[#173B2A] hover:bg-[#EAF3E9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315F3B]"
           >
             <X aria-hidden="true" className="size-5" />
           </Dialog.Close>
@@ -113,11 +113,11 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
             <div className="px-6 py-8 sm:px-10 sm:py-10 md:pt-16">
               {profile.position && (
-                <p className="type-eyebrow inline-flex rounded-md bg-[#EAF3E9] px-3 py-2">
+                <p className="inline-flex rounded-md bg-[#EAF3E9] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#315F3B]">
                   {profile.position}
                 </p>
               )}
-              <Dialog.Title className="type-section mt-3">
+              <Dialog.Title className="mt-3 font-cormorant text-[38px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[44px]">
                 {profile.name}
               </Dialog.Title>
 
@@ -128,10 +128,10 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
                     className="mt-0.5 size-5 shrink-0 stroke-[1.5] text-[#315F3B]"
                   />
                   <div>
-                    <h3 className="type-eyebrow text-gray-600">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#526359]">
                       Areas of practice
                     </h3>
-                    <p className="type-body mt-2 font-medium text-[#315F3B]">
+                    <p className="mt-2 text-base font-medium leading-relaxed text-[#315F3B]">
                       {profile.specialization}
                     </p>
                   </div>
@@ -140,10 +140,10 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
               {profile.about ? (
                 <>
-                  <h3 className="type-title mt-7">
+                  <h3 className="mt-7 font-cormorant text-2xl font-semibold text-[#173B2A]">
                     Professional background
                   </h3>
-                  <Dialog.Description className="type-body mt-3">
+                  <Dialog.Description className="mt-3 text-base leading-7 text-[#526359]">
                     {profile.about}
                   </Dialog.Description>
                 </>
@@ -155,7 +155,7 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
               {socialLinks.length > 0 && (
                 <section aria-label="Social profiles" className="mt-8 border-t border-[#DCE6DC] pt-5">
-                  <h3 className="type-eyebrow text-gray-600">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#526359]">
                     Socials
                   </h3>
                   <ul className="mt-3 flex flex-wrap gap-3">

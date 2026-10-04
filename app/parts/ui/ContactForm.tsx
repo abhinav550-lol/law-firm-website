@@ -12,7 +12,7 @@ import {
 type SubmissionStatus = { kind: "success" | "error"; message: string } | null;
 
 const fieldClassName =
-  "mt-2 w-full rounded-lg border border-[#DCE6DC] bg-white px-4 py-3 text-base leading-6 text-gray-600 outline-none transition-colors placeholder:text-[#718078] focus:border-[#315F3B] focus:ring-1 focus:ring-[#315F3B] aria-invalid:border-[#173B2A]";
+  "mt-2 w-full rounded-lg border border-[#DCE6DC] bg-white px-4 py-3 text-base leading-6 text-[#26312B] outline-none transition-colors placeholder:text-[#718078] focus:border-[#315F3B] focus:ring-1 focus:ring-[#315F3B] aria-invalid:border-[#173B2A]";
 
 export default function ContactForm() {
   const [errors, setErrors] = useState<EnquiryFieldErrors>({});
@@ -82,14 +82,14 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="min-w-0 rounded-lg border border-[#DCE6DC] bg-white p-6 sm:p-8"
     >
-      <p className="type-meta mb-6">
+      <p className="mb-6 text-sm leading-6 text-[#26312B]/75">
         All fields are required.
       </p>
       <fieldset disabled={isSending} className="min-w-0 space-y-6 disabled:opacity-75">
         <legend className="sr-only">Your contact details and query</legend>
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="enquiry-name" className="text-sm font-medium text-gray-900">
+            <label htmlFor="enquiry-name" className="text-sm font-medium text-[#173B2A]">
               Full name
             </label>
             <input
@@ -103,10 +103,10 @@ export default function ContactForm() {
               aria-describedby={errors.name ? "enquiry-name-error" : undefined}
               className={fieldClassName}
             />
-            {errors.name && <p id="enquiry-name-error" className="mt-2 text-sm leading-6 text-gray-900">{errors.name}</p>}
+            {errors.name && <p id="enquiry-name-error" className="mt-2 text-sm leading-6 text-[#173B2A]">{errors.name}</p>}
           </div>
           <div>
-            <label htmlFor="enquiry-phone" className="text-sm font-medium text-gray-900">
+            <label htmlFor="enquiry-phone" className="text-sm font-medium text-[#173B2A]">
               Phone number
             </label>
             <input
@@ -120,11 +120,11 @@ export default function ContactForm() {
               aria-describedby={errors.phone ? "enquiry-phone-error" : undefined}
               className={fieldClassName}
             />
-            {errors.phone && <p id="enquiry-phone-error" className="mt-2 text-sm leading-6 text-gray-900">{errors.phone}</p>}
+            {errors.phone && <p id="enquiry-phone-error" className="mt-2 text-sm leading-6 text-[#173B2A]">{errors.phone}</p>}
           </div>
         </div>
         <div>
-          <label htmlFor="enquiry-email" className="text-sm font-medium text-gray-900">
+          <label htmlFor="enquiry-email" className="text-sm font-medium text-[#173B2A]">
             Email address
           </label>
           <input
@@ -138,10 +138,10 @@ export default function ContactForm() {
             aria-describedby={errors.email ? "enquiry-email-error" : undefined}
             className={fieldClassName}
           />
-          {errors.email && <p id="enquiry-email-error" className="mt-2 text-sm leading-6 text-gray-900">{errors.email}</p>}
+          {errors.email && <p id="enquiry-email-error" className="mt-2 text-sm leading-6 text-[#173B2A]">{errors.email}</p>}
         </div>
         <div>
-          <label htmlFor="enquiry-query" className="text-sm font-medium text-gray-900">
+          <label htmlFor="enquiry-query" className="text-sm font-medium text-[#173B2A]">
             Your query
           </label>
           <textarea
@@ -155,10 +155,10 @@ export default function ContactForm() {
             aria-describedby={errors.query ? "enquiry-query-hint enquiry-query-error" : "enquiry-query-hint"}
             className={`${fieldClassName} resize-y`}
           />
-          <p id="enquiry-query-hint" className="mt-2 text-xs leading-5 text-gray-600">
+          <p id="enquiry-query-hint" className="mt-2 text-xs leading-5 text-[#26312B]/75">
             10–5,000 characters. Please keep your enquiry brief.
           </p>
-          {errors.query && <p id="enquiry-query-error" className="mt-2 text-sm leading-6 text-gray-900">{errors.query}</p>}
+          {errors.query && <p id="enquiry-query-error" className="mt-2 text-sm leading-6 text-[#173B2A]">{errors.query}</p>}
         </div>
         <div className="hidden" aria-hidden="true">
           <label htmlFor="enquiry-company">Company</label>
@@ -166,7 +166,7 @@ export default function ContactForm() {
         </div>
       </fieldset>
 
-      <p className="type-meta mt-6">
+      <p className="mt-6 text-sm leading-6 text-[#26312B]/75">
         Please do not submit confidential or sensitive information. Sending an
         enquiry does not establish an advocate-client relationship. Read our{" "}
         <Link href="/privacy-policy" className="rounded-sm text-[#315F3B] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#315F3B]">
@@ -184,7 +184,7 @@ export default function ContactForm() {
       {status && (
         <p
           role={status.kind === "error" ? "alert" : "status"}
-          className="mt-5 rounded-lg border border-[#DCE6DC] bg-white p-4 text-sm leading-6 text-gray-900"
+          className="mt-5 rounded-lg border border-[#DCE6DC] bg-white p-4 text-sm leading-6 text-[#173B2A]"
         >
           {status.message}
         </p>

@@ -12,12 +12,12 @@ const DashboardHero = () => {
     <section className="relative overflow-hidden px-6 py-12 sm:py-16 md:px-12 lg:min-h-[calc(100svh-8rem)] lg:px-24 lg:py-14">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="relative z-10 max-w-xl text-center lg:text-left">
-          <h1 className="type-display animate-fade-up animate-700ms">
+          <h1 className="animate-fade-up animate-700ms font-cormorant text-5xl font-semibold leading-[0.95] tracking-tight text-gray-900 sm:text-6xl lg:text-8xl">
             A Voice for
             <br />
             What Matters.
           </h1>
-          <p className="type-intro animate-fade-up animate-700ms animate-delay-150ms mx-auto mt-7 max-w-lg lg:mx-0">
+          <p className="animate-fade-up animate-700ms animate-delay-150ms font-inter mx-auto mt-7 max-w-lg text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 lg:mx-0">
             We help shape conversations that matter through informed
             advocacy, strategic thinking, and a deep understanding of the
             forces that shape public life.

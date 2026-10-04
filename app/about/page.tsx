@@ -50,29 +50,29 @@ const researchTools = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-white font-inter text-gray-600">
+    <main className="bg-white font-inter text-[#26312B]">
       <section
         aria-labelledby="about-heading"
         className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16"
       >
         <header className="grid items-start gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div className="animate-fade-up animate-700ms">
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
               LoremAdvocates
             </p>
             <h1
               id="about-heading"
-              className="type-display mt-4"
+              className="mt-4 font-cormorant text-[42px] font-semibold leading-[1.05] text-[#173B2A] sm:text-[56px]"
             >
               About Our Firm
             </h1>
-            <p className="type-meta mt-5 max-w-sm font-medium">
+            <p className="mt-5 max-w-sm text-sm font-medium leading-6 text-[#526359]">
               Legal representation. Advisory.
               <br />
               Dispute resolution.
             </p>
           </div>
-          <p className="type-intro animate-fade-up animate-700ms animate-delay-150ms max-w-2xl lg:pt-1">
+          <p className="animate-fade-up animate-700ms animate-delay-150ms max-w-2xl text-base leading-7 text-[#526359] sm:text-lg sm:leading-8 lg:pt-1">
             LoremAdvocates is a professionally driven law firm focused on
             delivering effective legal representation, advisory, and dispute
             resolution services across a broad range of matters. The Firm is
@@ -92,7 +92,7 @@ export default function AboutPage() {
             className="h-auto w-full"
           />
           <figcaption className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-            <p className="font-cormorant text-2xl font-semibold leading-[1.25] text-gray-900">
+            <p className="font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]">
               Care. Precision. Professional integrity.
             </p>
             <Link
@@ -112,17 +112,17 @@ export default function AboutPage() {
       >
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
               How we work
             </p>
             <h2
               id="approach-heading"
-              className="type-section mt-4"
+              className="mt-4 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
             >
               Our Approach
             </h2>
           </div>
-          <div className="type-body max-w-2xl space-y-5">
+          <div className="max-w-2xl space-y-5 text-base leading-7 text-[#526359]">
             <p>
               Our approach combines sound legal understanding, strategic thinking,
               and practical execution. The team at LoremAdvocates works closely
@@ -148,10 +148,10 @@ export default function AboutPage() {
               <span className="flex size-11 items-center justify-center rounded-lg bg-[#EAF3E9] text-[#315F3B]">
                 <Icon aria-hidden="true" className="size-5 stroke-[1.5]" />
               </span>
-              <h3 className="type-title mt-5">
+              <h3 className="mt-5 font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]">
                 {title}
               </h3>
-              <p className="type-meta mt-3">
+              <p className="mt-3 text-sm leading-6 text-[#526359]">
                 {description}
               </p>
             </li>
@@ -165,12 +165,12 @@ export default function AboutPage() {
       >
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 sm:py-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-10 lg:py-20">
           <div>
-            <p className="type-eyebrow">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
               An evolving practice
             </p>
             <h2
               id="research-heading"
-              className="type-section mt-4 max-w-sm"
+              className="mt-4 max-w-sm font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
             >
               A Modern, Research-Driven Practice
             </h2>
@@ -192,7 +192,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <div className="type-body max-w-2xl space-y-5 lg:pt-1">
+          <div className="max-w-2xl space-y-5 text-base leading-7 text-[#526359] lg:pt-1">
             <p>
               The Firm follows a modern and research-driven approach to legal
               practice, supported by contemporary technology, digital legal
@@ -213,12 +213,12 @@ export default function AboutPage() {
       >
         <div className="grid gap-8 rounded-xl bg-[#173B2A] p-6 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:p-12">
           <div>
-            <p className="type-eyebrow text-[#C8DEC8]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C8DEC8]">
               Our commitment
             </p>
             <h2
               id="values-heading"
-              className="type-section mt-4 text-white"
+              className="mt-4 font-cormorant text-[32px] font-semibold leading-[1.15] text-white sm:text-[38px]"
             >
               Traditional Values.
               <br />
@@ -226,7 +226,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <div>
-            <p className="type-body max-w-2xl text-[#EAF3E9]">
+            <p className="max-w-2xl text-base leading-7 text-[#EAF3E9]">
               At LoremAdvocates, we strive to combine traditional legal values with
               a modern outlook, ensuring that every matter is handled with care,
               precision, and professional integrity.

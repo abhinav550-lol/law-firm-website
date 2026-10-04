@@ -15,20 +15,20 @@ export default function LegalResourcesPage() {
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
   return (
-    <main className="bg-white font-inter text-gray-600">
+    <main className="bg-white font-inter text-[#26312B]">
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16 lg:pb-20">
         <header>
-          <p className="type-eyebrow">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
             Knowledge &amp; perspective
           </p>
-          <h1 className="type-display mt-4">
+          <h1 className="mt-4 font-cormorant text-[38px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[56px] sm:leading-[1.05]">
             Legal Resources
           </h1>
-          <p className="type-intro mt-5 max-w-2xl">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#26312B]/80">
             Articles, updates, and guides exploring legal concepts, procedures,
             and developments. A place to read, understand, and stay informed.
           </p>
-          <div className="type-meta mt-5 flex max-w-3xl items-start gap-2">
+          <div className="mt-5 flex max-w-3xl items-start gap-2 text-sm leading-6 text-[#26312B]/75">
             <Info aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-[#315F3B]" />
             <p>
               For general informational purposes only. This content does not

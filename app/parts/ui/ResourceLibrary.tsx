@@ -37,10 +37,16 @@ export default function ResourceLibrary({
               aria-pressed={selected}
               aria-controls="resource-results"
               onClick={() => setCategory(filter)}
+              onFocus={(event) =>
+                event.currentTarget.scrollIntoView({
+                  block: "nearest",
+                  inline: "nearest",
+                })
+              }
               className={`relative min-h-11 shrink-0 cursor-pointer whitespace-nowrap border-b-2 px-1 py-3 text-sm leading-6 transition-colors duration-150 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#315F3B] ${
                 selected
-                  ? "border-[#315F3B] font-semibold text-gray-900"
-                  : "border-transparent font-medium text-gray-600 hover:border-[#DCE6DC] hover:text-[#315F3B]"
+                  ? "border-[#315F3B] font-semibold text-[#173B2A]"
+                  : "border-transparent font-medium text-[#26312B]/75 hover:border-[#DCE6DC] hover:text-[#315F3B]"
               }`}
             >
               {filter}
@@ -53,12 +59,12 @@ export default function ResourceLibrary({
         <p
           aria-live="polite"
           aria-atomic="true"
-          className="type-meta"
+          className="text-sm leading-6 text-[#26312B]/75"
         >
           {filteredResources.length} {filteredResources.length === 1 ? "resource" : "resources"}
           {category !== "All" ? ` in ${category}` : " in the library"}
         </p>
-        <p className="text-xs leading-5 text-gray-600">
+        <p className="text-xs leading-5 text-[#26312B]/75">
           Latest publications first
         </p>
       </div>
@@ -84,10 +90,10 @@ export default function ResourceLibrary({
         ) : (
           <div className="rounded-lg border border-[#DCE6DC] bg-white p-8 sm:p-10">
             <BookOpen aria-hidden="true" className="size-6 stroke-[1.5] text-[#315F3B]" />
-            <h2 className="type-title mt-4">
+            <h2 className="mt-4 font-cormorant text-2xl font-semibold leading-[1.25] text-[#173B2A]">
               No {category === "FAQs" ? "FAQs" : category.toLowerCase()} published yet
             </h2>
-            <p className="type-body mt-3 max-w-prose">
+            <p className="mt-3 max-w-prose text-base leading-7 text-[#26312B]/80">
               There are no resources in this category yet. You can continue
               browsing the full library.
             </p>

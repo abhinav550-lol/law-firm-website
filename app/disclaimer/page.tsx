@@ -11,11 +11,11 @@ export default function DisclaimerPage() {
     <main className="min-h-screen bg-white">
       <section className="px-6 py-20 md:px-12 lg:px-24">
         <div className="mx-auto max-w-3xl">
-          <h1 className="type-display">
+          <h1 className="font-serif text-[38px] font-semibold leading-[1.15] text-[#173B2A] md:text-[56px] md:leading-[1.05]">
             Disclaimer
           </h1>
 
-          <div className="type-body mt-10 space-y-6">
+          <div className="mt-10 space-y-6 text-base leading-relaxed text-[#26312B]">
             <p>
               The information provided on this website is for general
               informational purposes only. It is not intended to constitute
@@ -73,7 +73,7 @@ export default function DisclaimerPage() {
               relevant jurisdiction.
             </p>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[#718078]">
               The final wording of this disclaimer has been reviewed and
               approved by the advocates of the firm.
             </p>
