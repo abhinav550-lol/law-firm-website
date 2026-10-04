@@ -1,107 +1,120 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "next/link";
-
-// Mock article data — replace with real data or fetch from database
-const articles = [
-  {
-    slug: "what-is-anticipatory-bail",
-    title: "What is Anticipatory Bail?",
-    category: "Legal Articles",
-    author: "Adv. John Doe",
-    date: "11 Aug 2026",
-    lastUpdated: "11 Aug 2026",
-    content: [
-      "Anticipatory bail is a provision under Section 438 of the Code of Criminal Procedure (CrPC) that allows a person to seek bail in anticipation of an arrest for a non-bailable offence.",
-      "When a person has reason to believe that they may be arrested on accusation of having committed a non-bailable offence, they may apply to the High Court or the Court of Session for a direction that in the event of their arrest, they shall be released on bail.",
-      "The court considers several factors when deciding whether to grant anticipatory bail, including the nature of the accusation, the severity of the punishment, the likelihood of the applicant fleeing from justice, and the possibility of the applicant tampering with evidence.",
-      "It is important to note that anticipatory bail is not a right but a remedy available at the discretion of the court. The applicant must demonstrate sufficient grounds for the court to grant such relief.",
-      "This article provides general information only and does not constitute legal advice. The provisions mentioned are subject to amendments and judicial interpretations. For specific legal matters, please consult a qualified advocate.",
-    ],
-  },
-  {
-    slug: "understanding-consumer-rights",
-    title: "Understanding Consumer Rights in India",
-    category: "Legal Articles",
-    author: "Adv. Jane Smith",
-    date: "05 Aug 2026",
-    lastUpdated: "05 Aug 2026",
-    content: [
-      "The Consumer Protection Act, 2019 provides a framework for the protection of consumer rights in India. It establishes consumer dispute redressal commissions at the district, state, and national levels.",
-      "Key consumer rights include the right to be protected against goods and services that are hazardous, the right to be informed about the quality and quantity of goods, and the right to seek redressal against unfair trade practices.",
-      "Consumers who have experienced defective goods or deficient services may file a complaint before the appropriate consumer commission. The process involves submitting a complaint with relevant details and supporting documentation.",
-      "This article provides general information only and does not constitute legal advice. For specific consumer matters, please consult a qualified advocate.",
-    ],
-  },
-];
+import { notFound } from "next/navigation";
+import { ArrowLeft, Info } from "lucide-react";
+import ResourceCard from "@/app/parts/ui/ResourceCard";
+import {
+  formatResourceDate,
+  getLegalResource,
+  getResourceSummary,
+  legalResources,
+} from "@/lib/legal-resources";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return legalResources.map(({ slug }) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
-  if (!article) return { title: "Article Not Found" };
+  const resource = getLegalResource(slug);
+
+  if (!resource) notFound();
 
   return {
-    title: `${article.title} | Legal Resources`,
-    description: article.content[0],
+    title: `${resource.title} | LoremAdvocates`,
+    description: resource.excerpt,
   };
 }
 
-export default async function ArticlePage({ params }: PageProps) {
+export default async function ResourcePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+  const resource = getLegalResource(slug);
 
-  if (!article) notFound();
+  if (!resource) notFound();
+
+  const summary = getResourceSummary(resource);
+  const moreResources = legalResources
+    .filter((item) => item.slug !== resource.slug)
+    .map(getResourceSummary)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-white">
-      <article className="px-6 py-20 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-3xl">
-          <Link
-            href="/legal-resources"
-            className="text-sm font-medium text-primary-green hover:text-deep-green"
-          >
-            ← Back to Legal Resources
-          </Link>
+    <main className="bg-[#F4F8F2] font-inter text-[#26312B]">
+      <div className="mx-auto max-w-7xl px-6 pt-8 pb-12 sm:pt-10 sm:pb-16 lg:px-10 lg:pb-20">
+        <article className="mx-auto max-w-4xl">
+          <nav aria-label="Resource navigation">
+            <Link
+              href="/legal-resources"
+              className="inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-medium text-[#315F3B] hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315F3B]"
+            >
+              <ArrowLeft aria-hidden="true" className="size-4" />
+              All legal resources
+            </Link>
+          </nav>
 
-          <div className="mt-8">
-            <span className="text-xs font-medium uppercase tracking-wide text-primary-green">
-              {article.category}
-            </span>
-            <h1 className="mt-2 font-serif text-[38px] font-semibold leading-[1.15] text-deep-green md:text-[56px] md:leading-[1.05]">
-              {article.title}
+          <header className="mt-6 border-b border-[#DCE6DC] pb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
+              {resource.category}
+            </p>
+            <h1 className="mt-4 font-cormorant text-[38px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[56px] sm:leading-[1.05]">
+              {resource.title}
             </h1>
-          </div>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm leading-6 text-[#26312B]/75">
+              {resource.author && <span>By {resource.author}</span>}
+              <span>
+                Published <time dateTime={resource.publishedAt}>{formatResourceDate(resource.publishedAt)}</time>
+              </span>
+              <span>{summary.readingMinutes} min read</span>
+              {resource.lastUpdated && resource.lastUpdated !== resource.publishedAt && (
+                <span>
+                  Updated <time dateTime={resource.lastUpdated}>{formatResourceDate(resource.lastUpdated)}</time>
+                </span>
+              )}
+            </div>
+          </header>
 
-          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-text">
-            <span>By {article.author}</span>
-            <span>Published: {article.date}</span>
-            <span>Last Updated: {article.lastUpdated}</span>
-          </div>
-
-          <hr className="mt-8 border-border" />
-
-          <div className="mt-8 space-y-6 text-base leading-relaxed text-text">
-            {article.content.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
+          <section aria-label="Resource content" className="mt-8 max-w-prose space-y-6 text-base leading-8">
+            {(resource.content ?? [resource.excerpt]).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
             ))}
+          </section>
+
+          <div className="mt-10 flex items-start gap-3 rounded-lg border border-[#DCE6DC] bg-[#EAF3E9] p-5">
+            <Info aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-[#315F3B]" />
+            <p className="text-sm leading-6 text-[#26312B]/80">
+              This resource is for general informational purposes only and does
+              not constitute legal advice. Readers should not rely on it as a
+              substitute for professional legal consultation.
+            </p>
           </div>
+        </article>
 
-          <hr className="mt-12 border-border" />
-
-          <p className="mt-8 text-sm text-muted-text">
-            <span className="font-medium text-deep-green">Disclaimer:</span>{" "}
-            This article is for general informational purposes only and does
-            not constitute legal advice. Readers should not rely on this
-            content as a substitute for professional legal consultation.
+        <section aria-labelledby="more-resources-heading" className="mt-12 border-t border-[#DCE6DC] pt-10 sm:mt-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
+            Continue reading
           </p>
-        </div>
-      </article>
+          <h2
+            id="more-resources-heading"
+            className="mt-3 font-cormorant text-[32px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[38px]"
+          >
+            More from the library
+          </h2>
+          <ul className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(min(100%,18rem),1fr))] gap-6" aria-label="More legal resources">
+            {moreResources.map((item) => (
+              <li key={item.slug}>
+                <ResourceCard resource={item} headingLevel={3} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }

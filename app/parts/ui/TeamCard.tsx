@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog } from "@base-ui/react/dialog";
-import { ArrowUpRight, UserRound, X } from "lucide-react";
+import { ArrowUpRight, Scale, UserRound, X } from "lucide-react";
 import { useState } from "react";
 import { getLawyerProfile, type Lawyer } from "@/lib/lawyers";
 import Image from "next/image";
@@ -33,7 +33,7 @@ function LawyerPortrait({
       src={src}
       alt={name}
       fill
-      unoptimized
+      unoptimized={!src.startsWith("/")}
       sizes={sizes}
       className={className}
       onError={() => setFailed(true)}
@@ -50,18 +50,45 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
 
   return (
     <Dialog.Root>
-      <Dialog.Trigger
-        aria-label={`View profile of ${profile.name}`}
-        className="group relative block aspect-[4/5] w-full cursor-pointer overflow-hidden rounded-lg border border-[#DCE6DC] bg-[#EAF3E9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315F3B]"
+      <article
+        className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[#DCE6DC] bg-white transition-colors hover:border-[#315F3B] focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-[#315F3B]"
       >
-        <LawyerPortrait
-          key={profile.image}
-          src={profile.image}
-          name={profile.name}
-          sizes="(min-width: 1280px) 384px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover motion-safe:transition-transform motion-safe:duration-300 group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
-        />
-      </Dialog.Trigger>
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#EAF3E9]">
+          <LawyerPortrait
+            key={profile.image}
+            src={profile.image}
+            name={profile.name}
+            sizes="(min-width: 1280px) 282px, (min-width: 640px) 50vw, 100vw"
+            className="object-cover motion-safe:transition-transform motion-safe:duration-300 group-hover:scale-[1.025] group-focus-within:scale-[1.025]"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col p-5 sm:p-6 xl:p-5">
+          {profile.position && (
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#315F3B]">
+              {profile.position}
+            </p>
+          )}
+          <h2 className="mt-2 font-cormorant text-[28px] font-semibold leading-[1.15] text-[#173B2A]">
+            {profile.name}
+          </h2>
+          {profile.specialization && (
+            <p className="mt-3 text-sm leading-6 text-[#526359]">
+              {profile.specialization}
+            </p>
+          )}
+          <div className="flex-1" />
+          <Dialog.Trigger
+            aria-label={`View profile of ${profile.name}`}
+            className="mt-5 flex min-h-11 w-full cursor-pointer items-center justify-between gap-3 border-t border-[#DCE6DC] pt-4 text-left text-sm font-semibold text-[#315F3B] after:absolute after:inset-0 after:rounded-xl after:content-[''] focus-visible:outline-none"
+          >
+            View profile
+            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#EAF3E9] transition-colors group-hover:bg-[#315F3B] group-hover:text-white group-focus-within:bg-[#315F3B] group-focus-within:text-white">
+              <ArrowUpRight aria-hidden="true" className="size-4" />
+            </span>
+          </Dialog.Trigger>
+        </div>
+      </article>
 
       <Dialog.Portal>
         <Dialog.Backdrop className="team-profile-backdrop fixed inset-0 z-50 bg-[#173B2A]/50" />
@@ -74,19 +101,19 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
           </Dialog.Close>
 
           <div className="grid md:grid-cols-[0.85fr_1.15fr]">
-            <div className="relative aspect-[4/3] bg-[#EAF3E9] md:aspect-auto md:min-h-[560px]">
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#EAF3E9] md:aspect-auto md:min-h-[560px]">
               <LawyerPortrait
                 key={profile.image}
                 src={profile.image}
                 name={profile.name}
                 sizes="(min-width: 768px) 380px, 100vw"
-                className="object-cover"
+                className="object-cover object-[center_20%]"
               />
             </div>
 
             <div className="px-6 py-8 sm:px-10 sm:py-10 md:pt-16">
               {profile.position && (
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
+                <p className="inline-flex rounded-md bg-[#EAF3E9] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#315F3B]">
                   {profile.position}
                 </p>
               )}
@@ -95,13 +122,19 @@ export default function TeamCard({ lawyer }: { lawyer?: Lawyer | null }) {
               </Dialog.Title>
 
               {profile.specialization && (
-                <div className="mt-7 border-y border-[#DCE6DC] py-5">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#526359]">
-                    Areas of practice
-                  </h3>
-                  <p className="mt-2 text-base font-medium leading-relaxed text-[#315F3B]">
-                    {profile.specialization}
-                  </p>
+                <div className="mt-7 flex items-start gap-3 rounded-lg border border-[#DCE6DC] bg-[#F4F8F2] p-4">
+                  <Scale
+                    aria-hidden="true"
+                    className="mt-0.5 size-5 shrink-0 stroke-[1.5] text-[#315F3B]"
+                  />
+                  <div>
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[#526359]">
+                      Areas of practice
+                    </h3>
+                    <p className="mt-2 text-base font-medium leading-relaxed text-[#315F3B]">
+                      {profile.specialization}
+                    </p>
+                  </div>
                 </div>
               )}
 

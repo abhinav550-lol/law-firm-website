@@ -37,7 +37,7 @@ const DashboardHero = () => {
           />
           <div className="relative z-10 h-full w-full overflow-hidden rounded-[2rem] border-8 border-white/80 bg-white shadow-[0_24px_70px_rgba(49,95,59,0.16)] sm:rounded-[3rem]">
             <Image
-              src="/assets/hero-image.png"
+              src="/assets/about-us-banner.png"
               alt="Legal professionals in discussion around a table"
               fill
               priority

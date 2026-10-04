@@ -1,118 +1,44 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Info } from "lucide-react";
+import ResourceLibrary from "@/app/parts/ui/ResourceLibrary";
+import { getResourceSummary, legalResources } from "@/lib/legal-resources";
 
 export const metadata: Metadata = {
-  title: "Legal Resources | Law Firm",
+  title: "Legal Resources | LoremAdvocates",
   description:
-    "Browse legal articles, updates, FAQs, and important judgments for general informational purposes.",
+    "Browse legal articles, legal updates, FAQs, and guides from LoremAdvocates for general informational purposes.",
 };
 
-// Mock article data — replace with real data
-const articles = [
-  {
-    slug: "what-is-anticipatory-bail",
-    title: "What is Anticipatory Bail?",
-    excerpt:
-      "A general explanation of anticipatory bail under Indian law, including when it may be sought and the relevant legal provisions.",
-    category: "Legal Articles",
-    date: "11 Aug 2026",
-  },
-  {
-    slug: "understanding-consumer-rights",
-    title: "Understanding Consumer Rights in India",
-    excerpt:
-      "An overview of the Consumer Protection Act and the remedies available to consumers.",
-    category: "Legal Articles",
-    date: "05 Aug 2026",
-  },
-  {
-    slug: "property-title-verification",
-    title: "Importance of Property Title Verification",
-    excerpt:
-      "Why verifying property titles before a transaction is essential and the common issues that may arise.",
-    category: "Legal Guides",
-    date: "28 Jul 2026",
-  },
-  {
-    slug: "recent-amendments-ipc",
-    title: "Recent Amendments to Criminal Law Provisions",
-    excerpt:
-      "A summary of recent legislative changes affecting criminal law practice in India.",
-    category: "Legal Updates",
-    date: "20 Jul 2026",
-  },
-  {
-    slug: "maintenance-under-section-125",
-    title: "Maintenance Under Section 125 CrPC",
-    excerpt:
-      "A general overview of maintenance provisions and the process involved in filing for maintenance.",
-    category: "Legal Articles",
-    date: "15 Jul 2026",
-  },
-];
-
-const categories = ["All", "Articles", "Updates", "FAQs", "Guides"];
-
 export default function LegalResourcesPage() {
+  const resources = legalResources
+    .map(getResourceSummary)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
   return (
-    <main className="min-h-screen bg-white">
-      <section className="px-6 py-20 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-5xl">
-          <h1 className="font-serif text-[38px] font-semibold leading-[1.15] text-deep-green md:text-[56px] md:leading-[1.05]">
+    <main className="bg-[#F4F8F2] font-inter text-[#26312B]">
+      <div className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16 lg:pb-20">
+        <header>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
+            Knowledge &amp; perspective
+          </p>
+          <h1 className="mt-4 font-cormorant text-[38px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[56px] sm:leading-[1.05]">
             Legal Resources
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-text">
-            General legal information, articles, and updates for educational
-            purposes. This content does not constitute legal advice.
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#26312B]/80">
+            Articles, updates, and guides exploring legal concepts, procedures,
+            and developments. A place to read, understand, and stay informed.
           </p>
-        </div>
-      </section>
+          <div className="mt-5 flex max-w-3xl items-start gap-2 text-sm leading-6 text-[#26312B]/75">
+            <Info aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-[#315F3B]" />
+            <p>
+              For general informational purposes only. This content does not
+              constitute legal advice.
+            </p>
+          </div>
+        </header>
 
-      {/* Category Filters */}
-      <section className="px-6 pb-4 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-5xl flex gap-2 flex-wrap">
-          {categories.map((cat) => (
-            <span
-              key={cat}
-              className="rounded-full border border-border px-4 py-1.5 text-sm text-muted-text"
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* Articles Grid */}
-      <section className="px-6 pb-20 md:px-12 lg:px-24">
-        <div className="mx-auto max-w-5xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/legal-resources/${article.slug}`}
-              className="group block rounded-lg border border-border bg-white p-6 transition-colors hover:border-primary-green"
-            >
-              {/* Cover image placeholder */}
-              <div className="mb-4 aspect-video w-full rounded bg-pale-green" />
-
-              <span className="text-xs font-medium uppercase tracking-wide text-primary-green">
-                {article.category}
-              </span>
-              <h2 className="mt-2 font-serif text-lg font-semibold text-deep-green">
-                {article.title}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-text line-clamp-3">
-                {article.excerpt}
-              </p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs text-muted-text">{article.date}</span>
-                <span className="text-sm font-medium text-primary-green transition-colors group-hover:text-deep-green">
-                  Read Article →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+        <ResourceLibrary resources={resources} />
+      </div>
     </main>
   );
 }

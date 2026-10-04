@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import TeamCard from "@/app/parts/ui/TeamCard";
 import type { Lawyer } from "@/lib/lawyers";
 
 export const metadata: Metadata = {
-  title: "Our Team | Advocacy",
+  title: "Our Team | LoremAdvocates",
   description:
-    "Meet the people at Advocacy and explore their professional backgrounds and areas of practice.",
+    "Meet the advocates at LoremAdvocates and explore their professional backgrounds and areas of practice.",
 };
 
 // Mock lawyer data — replace with real data or fetch from database
@@ -13,90 +15,80 @@ export const metadata: Metadata = {
 const lawyers: Lawyer[] = [
   {
     name: "Arjun Mehra",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP55-50uNoL7aefdx8geIxXrwsz3CFWy4_44j1h_Y1Nw&s=10",
-    linkedin: "",
-    facebook: "",
-    position: "Senior Advocate",
-    specialization: "Corporate & Commercial Litigation",
-    about:
-      "With over two decades of legal experience, Arjun Mehra has represented clients in complex corporate disputes, arbitration matters, and high-value commercial litigation.",
-  },
-  {
-    name: "Riya Khanna",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
-    linkedin: "http://facebook.com/",
-    facebook: "http://facebook.com/",
-    position: "Advocate",
-    specialization: "Family & Property Law",
-    about:
-      "Riya focuses on family disputes, inheritance matters, and property litigation, providing practical and compassionate legal guidance to individuals and families.",
-	
-  },
-  {
-    name: "Vikram Sethi",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
-    linkedin: "",
-    facebook: "",
+    image: "/assets/lawyer-1.png",
+    linkedin: "https://www.linkedin.com/in/arjun-mehra",
+    facebook: "https://www.facebook.com/arjun.mehra",
     position: "Senior Advocate",
     specialization: "Civil & Constitutional Law",
     about:
-      "Vikram Sethi has extensive courtroom experience in civil and constitutional matters, with a strong background in writ petitions, public law, and complex civil disputes.",
+      "Arjun Mehra handles civil, constitutional, and commercial disputes, with a strong focus on legal strategy, detailed research, and effective courtroom representation.",
   },
   {
-    name: "Aarav Malhotra",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80",
-    linkedin: "",
-    facebook: "",
+    name: "Ananya Kapoor",
+    image: "/assets/lawyer-2.png",
+    linkedin: "https://www.linkedin.com/in/ananya-kapoor",
+    facebook: "https://www.facebook.com/ananya.kapoor",
     position: "Advocate",
-    specialization: "Criminal Litigation",
+    specialization: "Family & Property Law",
     about:
-      "Aarav represents clients in criminal litigation and regulatory matters, with a focus on detailed case preparation, legal research, and effective courtroom advocacy.",
+      "Ananya Kapoor advises clients on family disputes, inheritance matters, property conflicts, and related litigation, offering practical and client-focused legal solutions.",
   },
   {
-    name: "Neha Kapoor",
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80",
-    linkedin: "",
-    facebook: "",
+    name: "Rohan Malhotra",
+    image: "/assets/lawyer-3.png",
+    linkedin: "https://www.linkedin.com/in/rohan-malhotra",
+    facebook: "https://www.facebook.com/rohan.malhotra",
+    position: "Advocate",
+    specialization: "Criminal & Regulatory Law",
+    about:
+      "Rohan Malhotra represents clients in criminal and regulatory matters, with an emphasis on thorough case preparation, legal research, and clear courtroom advocacy.",
+  },
+  {
+    name: "Meera Khanna",
+    image: "/assets/lawyer-4.png",
+    linkedin: "https://www.linkedin.com/in/meera-khanna",
+    facebook: "https://www.facebook.com/meera.khanna",
     position: "Senior Advocate",
-    specialization: "Arbitration & Dispute Resolution",
+    specialization: "Arbitration & Commercial Disputes",
     about:
-      "Neha Kapoor advises businesses and individuals on arbitration, contractual disputes, and commercial conflicts, with significant experience in alternative dispute resolution.",
-  },
-  {
-    name: "Kabir Anand",
-    image:
-      "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=900&q=80",
-    linkedin: "",
-    facebook: "",
-    position: "Advocate",
-    specialization: "Corporate & Contract Law",
-    about:
-      "Kabir works with startups, companies, and private clients on contracts, corporate advisory, compliance, and commercial transactions, with an emphasis on clear and practical legal solutions.",
+      "Meera Khanna advises individuals and businesses on arbitration, contractual conflicts, and commercial disputes, with a focus on efficient and strategic dispute resolution.",
   },
 ];
 
 export default function TeamPage() {
   return (
     <main className="bg-[#F4F8F2] font-inter text-[#26312B]">
-      <section aria-labelledby="team-heading" className="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:px-10 lg:py-12">
-        <header className="mb-10 border-b border-[#DCE6DC] pb-8 sm:mb-12 sm:pb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
-            The people behind the practice
-          </p>
-          <h1 id="team-heading" className="mt-4 font-cormorant text-[42px] font-semibold leading-[1.05] text-[#173B2A] sm:text-[56px]">
-            Our Team
-          </h1>
-          <p className="mt-5 text-base leading-relaxed text-[#526359]">
-           Meet the legal professionals behind our firm, bringing experience, dedication, and trusted counsel to every case.
-          </p>
+      <section
+        aria-labelledby="team-heading"
+        className="mx-auto max-w-7xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 lg:px-10 lg:pt-16 lg:pb-20"
+      >
+        <header className="mb-10 grid gap-6 border-b border-[#DCE6DC] pb-8 sm:mb-12 sm:pb-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#315F3B]">
+              The people behind the practice
+            </p>
+            <h1
+              id="team-heading"
+              className="mt-4 font-cormorant text-[42px] font-semibold leading-[1.05] text-[#173B2A] sm:text-[56px]"
+            >
+              Our Team
+            </h1>
+          </div>
+          <div className="max-w-2xl lg:pt-1">
+            <p className="text-base leading-7 text-[#526359] sm:text-lg sm:leading-8">
+              Meet the legal professionals behind our firm, bringing experience,
+              dedication, and trusted counsel to every case.
+            </p>
+            <p className="mt-4 text-sm leading-6 text-[#526359]">
+              Explore their areas of practice and professional backgrounds below.
+            </p>
+          </div>
         </header>
 
-        <ul aria-label="Lawyers at the firm" className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+        <ul
+          aria-label="Lawyers at the firm"
+          className="grid  grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:gap-6 "
+        >
           {lawyers.map((lawyer, index) => (
             <li
               key={`${lawyer.name ?? "lawyer"}-${index}`}
@@ -107,6 +99,24 @@ export default function TeamPage() {
             </li>
           ))}
         </ul>
+
+        <div className="mt-10 flex flex-col gap-5 rounded-xl border border-[#DCE6DC] bg-[#EAF3E9] p-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315F3B]">
+              A shared approach
+            </p>
+            <h2 className="mt-3 font-cormorant text-[28px] font-semibold leading-[1.15] text-[#173B2A] sm:text-[32px]">
+              Care. Diligence. Professional integrity.
+            </h2>
+          </div>
+          <Link
+            href="/about"
+            className="inline-flex min-h-11 w-fit shrink-0 items-center gap-2 rounded-sm text-sm font-semibold text-[#315F3B] hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315F3B]"
+          >
+            About our firm
+            <ArrowUpRight aria-hidden="true" className="size-4" />
+          </Link>
+        </div>
       </section>
     </main>
   );
